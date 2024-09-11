@@ -46,32 +46,62 @@ int main() {
 void swap(int *a, int *b) {
     //Write the function description
 
+#include <stdio.h>
 
+// Function to swap two integers using pointers
+void swap(int *a, int *b) {
+    int temp;      
+    temp = *a;     
+    *a = *b;     
+    *b = temp;     
+}
 
-
-
-
-
+int main() {
+    int x = 10, y = 20;
+    
+    printf("Before swapping: x = %d, y = %d\n", x, y);
+    swap(&x, &y);  // Call swap function by passing the addresses of x and y
+    printf("After swapping: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}
 }
 
 // Function to find the maximum value in an array using pointers
 int findMax(int *arr, int length) {
     //Write the fucntion description 
 
-
-
-
-
-
-
-  
+int findMax(int *arr, int length) {
+     int *max = arr;
+    for (int i = 1; i < length; i++) {
+        // If the current element is greater than the max, update max
+        if (*(arr + i) > *max) {
+            max = (arr + i);
+        }
+    }
+    
+    // Return the value of the maximum element
+    return *max;
+}
 }
 
 // Function to reverse an array using pointers
 void reverseArray(int *arr, int length) {
-    //Write the function description 
+    
 
+void reverseArray(int *arr, int length) {
+    int *start = arr;          
+    int *end = arr + length - 1;  
+    
 
+    while (start < end) {
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
+    }
+}
 
 
 
